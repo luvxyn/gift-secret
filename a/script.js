@@ -1,4 +1,4 @@
-/* Fondo tipo agua en movimiento */
+/* Fondo tipo agua animado con gradiente */
 body {
   font-family: 'Comic Sans MS', cursive, sans-serif;
   margin: 0;
@@ -7,41 +7,34 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background: #0a0a0a;
   color: white;
+  position: relative;
 }
 
-.water {
-  position: absolute;
+/* Fondo animado */
+body::before {
+  content: "";
+  position: fixed;
   top: 0;
   left: 0;
-  width: 200%;
-  height: 200%;
-  background: rgba(0, 50, 255, 0.2);
-  border-radius: 50%;
-  animation: wave 6s linear infinite;
-  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(270deg, #000000, #0a0a2e, #000000, #0a0a2e);
+  background-size: 800% 800%;
+  animation: waterAnim 20s ease infinite;
+  z-index: -1;
 }
 
-.water:nth-child(2) {
-  animation-delay: 3s;
-  background: rgba(0, 100, 255, 0.2);
-}
-
-/* Animación de ondas */
-@keyframes wave {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+@keyframes waterAnim {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Contenedor de contenido */
 .container {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   background: rgba(0,0,0,0.6);
   padding: 40px;
   border-radius: 20px;
@@ -49,56 +42,4 @@ body {
   width: 90%;
   max-width: 500px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-}
-
-/* Inputs y botones */
-input {
-  padding: 10px;
-  border-radius: 10px;
-  border: 2px solid #0f0f0f;
-  margin-top: 15px;
-  font-size: 16px;
-}
-
-button {
-  padding: 10px 20px;
-  margin-top: 15px;
-  border: none;
-  border-radius: 10px;
-  background: #ff6f91;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-button:hover:not([disabled]) {
-  transform: scale(1.1);
-}
-
-button:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-}
-
-/* Mensajes de notificación */
-#message {
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-/* Pestañas */
-.tab-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.tab-buttons button.active {
-  background: #ff6f91;
-}
-
-.tab-content {
-  text-align: center;
 }
