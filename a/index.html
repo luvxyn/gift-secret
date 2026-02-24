@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎁 Birthday Gift</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Bloque de inicio / contraseña -->
+    <div id="login">
+      <h1>🎉 ¡Feliz Cumpleaños! 🎂</h1>
+      <p>Ingresa tu fecha de cumpleaños para desbloquear tu regalo:</p>
+      <input type="date" id="birthday">
+      <button id="unlockBtn">Desbloquear 🎁</button>
+      <div id="message"></div>
+    </div>
+
+    <!-- Bloque de pestañas -->
+    <div id="tabs" style="display:none;">
+      <div class="tab-buttons">
+        <button id="tab1" class="active">🎁 Paso 1</button>
+        <button id="tab2" disabled>🎈 Paso 2</button>
+        <button id="tab3" disabled>🎉 Paso 3</button>
+      </div>
+      <div class="tab-content" id="content">
+        <p>¡Bienvenido al Paso 1! Completa este paso para continuar.</p>
+        <button id="next1">Siguiente ➡️</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
